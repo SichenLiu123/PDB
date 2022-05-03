@@ -1,0 +1,89 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>DNA-transcription factor binding sites</title>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script>
+
+    <!--    <script src="/projects/mutabind/prj-sunddg/static/myjs/myjs.js?v=0.2"></script>-->
+    <script>
+        if (window.location.protocol != "https:" & window.location.href.substring(window.location.protocol.length, 15) == "//www.ncbi")
+            window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
+    </script>
+
+
+</head>
+<body>
+
+
+<div class="row">
+
+    <hr>
+
+    <div class="small-10 small-offset-1 end column">
+        <!--Content here-->
+
+
+        <p class="text-justify"><strong>DNA-transcription factor binding sites</strong> This is a web server for
+            analyzing the binding
+            sites between double-standed DNA and transcription factors. It is able to allow users to search and analyze
+            the DNA-transcription
+            factor binding sites from a user-provided PDB ID(the structure identifier used in the Protein data Bank) or
+            a PDB-formatted file.
+            <span style="color: #FF0000">This web will help researchers to understand the molecular details of how the transcription factors recognize DNA and provide important clues for therapeutic targeting of oncogenic transcription factors.</span>
+        </p>
+
+
+        <style>
+            h6.left {
+                margin-right: 1rem;
+                display: block;
+            }
+
+            .subindex {
+                vertical-align: sub;
+                font-size: 60%;
+            }
+        </style>
+    </div>
+
+    <div class="small-3 columns">
+        <label for="pdb_id_input" class="left" style="font-size:1.3rem">Input PDB code:</label>
+    </div>
+    <div class="small-3 columns">
+        <input type="text" id="pdb_id_input" name="pdb_id" style="margin-bottom:0.5rem"
+               placeholder="PDB id code [4-letter code]" class="radius"/>
+    </div>
+    <h3 class="subheader" id="hint"></h3>
+
+    <div class="row">
+        <button type="submit" id="btn_submit" onclick="download()">download</button>
+    </div>
+</div>
+
+
+<script>
+
+    function download() {
+        var v = document.getElementById("pdb_id_input").value
+        $("#hint").text("downloading pdb file...");
+
+        $.get({
+                url: "/pdb?id=" + v,
+                success: res => {
+                    console.log(res)
+                    window.location.href = "/viewer?id=" + res;
+                },
+                error: err => {
+                    $("#hint").text("pdb file not found");
+                }
+            }
+        )
+    }
+
+
+</script>
+
+

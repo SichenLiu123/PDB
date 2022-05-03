@@ -1,0 +1,106 @@
+****************************************************************************
+       SNAP: a software tool for the characterization of 3D
+           Structures of Nucleic Acid-Protein complexes
+              v1.0.6-2019sep30, by xiangjun@x3dna.org
+
+SNAP has been made possible by the NIH grant R01GM096889 (to X.J.Lu).
+It is being actively maintained and developed. As always, I greatly
+appreciate your feedback. Please report all SNAP-related issues on
+the 3DNA Forum (forum.x3dna.org). I strive to respond promptly to any
+questions posted there. SNAP is free of charge for NON-COMMERCIAL
+purposes, and it comes with ABSOLUTELY NO WARRANTY.
+
+****************************************************************************
+Note: By default, each nucleotide/amino-acid is identified by chainId.name#.
+      So a common case would be B.DA1689, meaning adenosine #1689 on chain B.
+      Use the --idstr=long option to get strictly delineated id strings.
+
+Command: dnapro -i=1OCT.pdb -o=out.out --interface --type=either
+Date and time: Tue May  3 17:40:25 2022
+File name: 1OCT.pdb
+    no. of peptide chains: 1 [C=131]
+    no. of DNA/RNA chains: 2 [A=15,B=15]
+    no. of amino acids:    131
+    no. of nucleotides:    30
+    no. of atoms:          1670
+    no. of waters:         0
+    no. of metals:         0
+
+****************************************************************************
+List of 1 helix
+  Note: a helix is defined by base-stacking interactions, regardless of bp
+        type and backbone connectivity, and may contain more than one stem.
+      helix#number[stems-contained] bps=number-of-base-pairs in the helix
+      bp-type: '|' for a canonical WC/wobble pair, '.' otherwise
+      helix-form: classification of a dinucleotide step comprising the bp
+        above the given designation and the bp that follows it. Types
+        include 'A', 'B' or 'Z' for the common A-, B- and Z-form helices,
+        '.' for an unclassified step, and 'x' for a step without a
+        continuous backbone.
+      --------------------------------------------------------------------
+  helix#1[0] bps=14
+      strand-1 5'-GTATGCAAATAAGG-3'
+       bp-type    ||||||||||||||
+      strand-2 3'-CATACGTTTATTCC-5'
+      helix-form  BBBBBBBBBBBBB
+   1 A.DG202        B.DC230        G-C WC           19-XIX    cWW  cW-W
+   2 A.DT203        B.DA229        T-A WC           20-XX     cWW  cW-W
+   3 A.DA204        B.DT228        A-T WC           20-XX     cWW  cW-W
+   4 A.DT205        B.DA227        T-A WC           20-XX     cWW  cW-W
+   5 A.DG206        B.DC226        G-C WC           19-XIX    cWW  cW-W
+   6 A.DC207        B.DG225        C-G WC           19-XIX    cWW  cW-W
+   7 A.DA208        B.DT224        A-T WC           20-XX     cWW  cW-W
+   8 A.DA209        B.DT223        A-T WC           20-XX     cWW  cW-W
+   9 A.DA210        B.DT222        A-T WC           20-XX     cWW  cW-W
+  10 A.DT211        B.DA221        T-A WC           20-XX     cWW  cW-W
+  11 A.DA212        B.DT220        A-T WC           20-XX     cWW  cW-W
+  12 A.DA213        B.DT219        A-T WC           20-XX     cWW  cW-W
+  13 A.DG214        B.DC218        G-C WC           19-XIX    cWW  cW-W
+  14 A.DG215        B.DC217        G-C WC           19-XIX    cWW  cW-W
+
+****************************************************************************
+List of 77 nucleotide/amino-acid interactions
+       id   nt-aa   nt           aa              Tdst    Rdst     Tx      Ty      Tz      Rx      Ry      Rz
+   1  1OCT  G-thr  A.DG202      C.THR26         12.73  -38.52   -6.47   10.19    4.03  -24.59   26.49  -13.54
+   2  1OCT  T-arg  A.DT203      C.ARG20         19.41 -111.23  -15.89    8.93    6.68  -43.44  -11.44 -104.66
+   3  1OCT  T-ile  A.DT203      C.ILE21        -17.63 -139.08  -13.56    5.93   -9.58  -15.64   62.29 -131.25
+   4  1OCT  T-thr  A.DT203      C.THR26        -13.42  -56.68   -2.74   13.12    0.78  -17.93   32.10  -43.91
+   5  1OCT  T-gln  A.DT203      C.GLN27         12.54 -132.49   -5.55    8.99    6.76   21.85  -81.09 -114.36
+   6  1OCT  T-gln  A.DT203      C.GLN44         10.67 -115.42   -4.72    9.57   -0.05   65.02   27.06  -98.34
+   7  1OCT  T-ser  A.DT203      C.SER48         11.31  -84.75   -8.12    6.44    4.54   29.42    7.18  -80.13
+   8  1OCT  A-lys  A.DA204      C.LYS17        -18.07  175.87   14.34   -7.08   -8.42    7.85  -46.15  175.49
+   9  1OCT  A-gln  A.DA204      C.GLN27        -11.98  163.47    5.68   -8.28   -6.55   20.04  -87.74  156.55
+  10  1OCT  A-gln  A.DA204      C.GLN44          8.90 -147.71   -1.25    8.28   -3.00   62.13   -4.03 -142.09
+  11  1OCT  A-ser  A.DA204      C.SER48         10.01 -126.61   -5.86    8.07    0.89   21.11   -7.37 -125.49
+  12  1OCT  A-glu  A.DA204      C.GLU51         14.87 -145.96  -11.08    8.90   -4.38   87.37   -5.57 -132.18
+  13  1OCT  T-thr  A.DT205      C.THR45          6.48 -148.19   -1.00    5.50    3.28  -35.77    2.63 -146.52
+  14  1OCT  T-ser  A.DT205      C.SER48        -10.33 -151.96   -5.14    8.73   -2.03   28.42  -17.90 -150.69
+  15  1OCT  G-thr  A.DG206      C.THR45         -7.46  178.53   -1.92   -7.19    0.56   34.46  -11.97  178.45
+  16  1OCT  G-arg  A.DG206      C.ARG49        -11.02  175.51    3.67   -9.94    3.04   54.67  -28.85  174.77
+  17  1OCT  C-arg  A.DC207      C.ARG49        -10.55  130.65   -1.73  -10.40    0.39   42.89  -25.07  125.22
+  18  1OCT  C-arg  A.DC207      C.ARG105        10.64   61.56   -9.91   -3.22    2.16    3.33   59.24   17.22
+  19  1OCT  A-arg  A.DA208      C.ARG105        10.98  -45.39  -10.37   -1.40   -3.30   18.22   38.36  -16.42
+  20  1OCT  A-arg  A.DA208      C.ARG113        17.53  -87.05  -14.54    6.53   -7.31   61.91   23.81  -59.97
+  21  1OCT  A-arg  A.DA209      C.ARG102        12.96  -64.64  -12.42   -3.69    0.50   19.39   38.44  -49.42
+  22  1OCT  A-arg  A.DA209      C.ARG105       -10.54  -77.58   -9.01    0.77   -5.43   32.27   40.40  -59.98
+  23  1OCT  A-thr  A.DA209      C.THR106       -12.45   76.08   -4.46   10.70    4.55  -24.22  -70.81   14.79
+  24  1OCT  A-ile  A.DA209      C.ILE108       -14.17  -36.15   -5.74   12.87   -1.43   -1.65  -27.04  -24.16
+  25  1OCT  A-arg  A.DA209      C.ARG113       -16.89 -120.22  -11.02    8.88   -9.21   63.56   10.27 -107.85
+  26  1OCT  A-trp  A.DA209      C.TRP148        11.47  103.87    6.57    5.65    7.52    2.91   44.45   96.44
+  27  1OCT  A-asn  A.DA209      C.ASN151         9.24 -165.14   -6.41    6.54   -1.24   44.17   60.06 -161.30
+  28  1OCT  A-lys  A.DA209      C.LYS155        12.02  116.35    8.46   -4.66    7.15    1.16   62.24  103.95
+  29  1OCT  A-arg  A.DA210      C.ARG102        13.00  -90.23  -12.62   -0.84   -3.03   31.67   30.70  -80.82
+  30  1OCT  A-lys  A.DA210      C.LYS103       -13.17  -49.41   -7.21    9.69    5.25  -32.94  -36.47   -5.27
+  31  1OCT  A-lys  A.DA210      C.LYS104       -14.22  106.94    5.65   12.26   -4.48   29.91   64.97   85.63
+  32  1OCT  A-arg  A.DA210      C.ARG105       -12.13 -102.76   -8.14    2.20   -8.71   44.67   29.25  -91.36
+  33  1OCT  A-thr  A.DA210      C.THR106       -13.69  -77.72   -3.34   13.06    2.39  -41.68  -63.09  -19.46
+  34  1OCT  A-val  A.DA210      C.VAL144        12.95   98.31    5.37    9.78    6.57    9.45   78.15   64.48
+  35  1OCT  A-val  A.DA210      C.VAL147         9.50  177.54    8.35   -4.40    1.13  -31.38  -26.50  177.38
+  36  1OCT  A-asn  A.DA210      C.ASN151         7.95  169.39    3.58   -6.02   -3.76  -61.24  -46.91  166.41
+  37  1OCT  T-arg  A.DT211      C.ARG102       -14.28 -123.19  -12.66    2.15   -6.23   35.07   24.54 -118.55
+  38  1OCT  T-lys  A.DT211      C.LYS103       -14.60  -59.01   -4.92   13.51    2.53  -42.55  -18.37  -37.59
+  39  1OCT  T-val  A.DT211      C.VAL147        -9.12  143.26    7.02   -5.17   -2.68  -31.13  -15.46  141.43
+  40  1OCT  C-ser  B.DC217      C.SER128       -15.00  -66.88   -9.78    8.86   -7.13   36.24   36.65  -44.16
+  41  1OCT  C-lys  B.DC217      C.LYS142        18.35  -89.91   -7.88   15.79   -5.07   36.13   69.78  -47.78
+  42  1OCT  C-arg  B.DC217      C.ARG146        14.28  -55.97   -8.39   11.34    2.24   15.64   47.13  -26.68
+  43  1OCT  C-lys  B.DC218      C.LYS125        15.78 -137.92  -15.08    2.61   -3.83   11.82   49.

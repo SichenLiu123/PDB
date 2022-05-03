@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Viewer</title>
+    <script src="http://3Dmol.csb.pitt.edu/build/3Dmol-min.js"></script>
+    <style>
+        .mol-container {
+            width: 60%;
+            height: 400px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<h2>Visualization</h2>
+<div>
+    <div id="abc" class="mol-container"></div>
+</div>
+<h2>nucleotide/amino-acid interactions</h2>
+<div>
+    <table border="1" id="tab">
+        <tr>
+            <th>index</th>
+            <th>id</th>
+            <th>nt-aa</th>
+            <th>nt</th>
+            <th>aa</th>
+        </tr>
+    </table>
+</div>
+
+<script>
+    function getUrlParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]); return null;
+    }
+
+    let element = $('#abc');
+    let config = { backgroundColor: 'orange' };
+    let viewer = $3Dmol.createViewer( element, config );
+    let id = getUrlParam("id");
+    let pdbUri = "/pdb/" + id + ".pdb";
+    console.log(pdbUri)
+    jQuery.ajax( pdbUri, {
+        success: function(data) {
+            let v = viewer;
+            v.addModel( data, "pdb" );                       /* load data */
+            v.setStyle({}, {cartoon: {color: 'spectrum'}});  /* style all atoms */
+            v.zoomTo();                                      /* set camera */
+            v.render();                                      /* render scene */
+            v.zoom(1.2, 1000);                               /* slight zoom */
+        },
+        error: function(hdr, status, err) {
+            console.error( "Failed to load PDB " + pdbUri + ": " + err );
+        },
+    });
+
+    jQuery.ajax( "/json?id="+id, {
+        success: function(data) {
+            console.log(data)
+            var jsonData = JSON.parse(data);
+            if(jsonData["ntAA_contacts"]){
+                var contacts = jsonData["ntAA_contacts"]
+                contacts.forEach(c=>{
+                   var row= "<tr><td>" + c["index"] + "</td><td>" + id.toUpperCase() + "</td><td>" +
+                        c["ntaa"]+ "</td><td>"+c["nt"]+"</td><td>"+c["aa"]+"</td></tr>";
+                    $("#tab").append(row)
+                })
+            }
+
+        },
+
+    });
+</script>
+</body>
+</html>
